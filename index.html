@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
@@ -12,29 +12,6 @@
 
 </head>
 <body>
-    <script type="text/javascript">
-      var NowImg=1;//表示当前显示的div
-      var MaxImg=2;//表示div的个数
-      function show(){
-          for(var i=1;i<=MaxImg;i++){
-              if(NowImg==i){
-                  document.getElementById("div1"+NowImg).style.display='block';//当前显示的div
-                  document.getElementById("div2"+NowImg).style.display='block';
-                  document.getElementById("div3"+NowImg).style.display='block';
-              }
-              else{
-                  document.getElementById("div1"+i).style.display='none';
-                  document.getElementById("div2"+i).style.display='none';
-                  document.getElementById("div3"+i).style.display='none';
-              }
-          }
-          if(NowImg==MaxImg)//判断当前div是否是最后一个，如果是则从第一个重新轮回显示
-              NowImg=1;
-          else
-              NowImg++;//设置下一个显示的图片
-      }
-      theTimer=setInterval("show()",2000);//设置定时器，显示下一个图片，10000表示每间隔10秒，可以改的。。。
-    </script>
 
   <style type="text/css">
     #new {
@@ -55,7 +32,7 @@
     .new_1 {
       width: 30%;
       height:300px;
-      border: 30px solid snow;
+      border: 30px solid white;
       background-color: white;
       opacity: 0.8;
     }
@@ -65,15 +42,33 @@
       text-decoration: underline;
       text-align: center;
     }
+
   </style>
 
+ <!-- 弹出登录框 -->
+ <div id="loginmodal" class="wrapper" style="display:none;">
+    <form class="form-signin">       
+      <h2 class="form-signin-heading">用户登录</h2>
+      <input type="text" class="form-control" name="username" placeholder="账号" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="密码" required=""/>      
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 记住我
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>   
+    </form>
+</div>
+
+<!-- HTML内容 -->
 <div id="top-image">
   <img src="./images/左标.png" width="280px" style="position: absolute;top:-80px;left: -20px;"/>
 
   <div style="position: absolute;top: 30px;right: 30px;">
       <img src="./images/用户.png" width="25px" style="position:absolute;top: 0px;left:-35px;">
-      <a style="color: antiquewhite;font-family: 宋体;font-size: 20px;opacity: 0.9;">注册 | 登录 | VIP</a><br>
-  </div>
+     <a href="#loginmodal" id="modaltrigger" 
+     style="color: antiquewhite;font-family: 宋体;font-size: 20px;opacity: 0.9;">
+     注册 | 登录 | VIP</a><br>
+    </div>
+
 
   <div id="content" class="container center-block">
     <div class="jumbotron">
@@ -152,13 +147,49 @@
 </div>
 
 <script src="js/jquery.min.js"></script>
-<script src="js/ios-parallax.js"></script> 
+<script src="js/ios-parallax.js"></script>
+<script charset="utf-8" src="js/jquery.leanModal.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $('#top-image').iosParallax({
 	movementFactor: 50
   });
 });
+
+//弹出登录框
+$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+
+
+//轮转播放
+var NowImg=1;//表示当前显示的div
+      var MaxImg=2;//表示div的个数
+      function show(){
+          for(var i=1;i<=MaxImg;i++){
+              if(NowImg==i){
+                  document.getElementById("div1"+NowImg).style.display='block';//当前显示的div
+                  document.getElementById("div2"+NowImg).style.display='block';
+                  document.getElementById("div3"+NowImg).style.display='block';
+              }
+              else{
+                  document.getElementById("div1"+i).style.display='none';
+                  document.getElementById("div2"+i).style.display='none';
+                  document.getElementById("div3"+i).style.display='none';
+              }
+          }
+          if(NowImg==MaxImg)//判断当前div是否是最后一个，如果是则从第一个重新轮回显示
+              NowImg=1;
+          else
+              NowImg++;//设置下一个显示的图片
+      }
+      theTimer=setInterval("show()",2000);//设置定时器，显示下一个图片，10000表示每间隔10秒，可以改的。。。
+
+
 </script>
 
 </div>
