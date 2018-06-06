@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FakeChecking新闻查详情</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+<style>
+    html,body {
+        background: url("./images/背景.png") no-repeat;
+        background-size: 100%;
+        /* width: 100%;
+        height: 100%; */
+    }
+    #page-2 {
+        width: 100%;
+        height: 85%;
+        position: absolute;
+        top: 15%;
+        left: 0;
+        background-color: white;
+    }
+    #page-2 #center {
+        width: 40%;
+        position: absolute;
+        top:50px;
+        left: 30%;
+        text-align: center;
+    }
+    #page-2 #article {
+        font-size: 20px;
+        text-align: left;
+        position: absolute;
+        top:200px;
+        left: 30%;
+    }
+
+    .progress{
+		background: #ffffff;
+		border-radius: 20px;
+		height: 40px;
+		width: 100%;
+		border-top: 3px solid rgb(5, 233, 221);
+		border-left: 3px solid rgb(5, 233, 221);
+		border-right: 3px solid rgb(5, 233, 221);
+		border-bottom: 3px solid rgb(5, 233, 221);
+		box-shadow: 0 5px 4px -6px #aaa;
+		margin-top: 50px;
+		overflow: visible;
+	}
+	.progress .progress-bar{
+		border-radius: 20px;
+		position: relative;
+		animation: animate-positive 2s;
+	}
+
+
+	@-webkit-keyframes animate-positive{
+		0% { width: 0%; }
+	}
+	@keyframes animate-positive{
+		0% { width: 0%; }
+	}
+
+    #page-3 {
+        width: 100%;
+        position: absolute;
+        top:55%;
+    }
+    #page-3 #text-1 {
+        height: 300px;
+        width: 500px;
+        background-color: #F1E7FF;
+        border-radius: 10px;
+        position: absolute;
+        left:20%;
+    }
+    #page-3 #text-2 {
+        height: 300px;
+        width: 500px;
+        background-color: #D1E4F3;
+        border-radius: 10px;
+        position: absolute;
+        right:20%;
+    }
+</style>
+
+<img src="./images/左标.png" width="280px" style="position: absolute;top:-80px;left: -20px;"/>
+
+
+<div id="page-2">
+    <div id="center">
+        <h2 style="font-size: 35px">新闻标题示例</h2>
+
+        <div class="progress">
+            <div class="progress-bar" style="width: 80%; background: linear-gradient(to right, #fa3939 20%,#aaf103,#30e993 90%);">
+            </div>
+        </div>
+
+        <p id="article">
+            来源：新华网<br>
+            发布时间：2018年4月10日<br>
+            转载次数：200次<br>
+            新闻类别：国际经济<br>
+            正文内容：示例文字...<a>展开</a>
+        </p>
+
+    </div>
+
+    <div id="page-3">
+        <div id="text-1">
+        
+        </div>
+        <div id="text-2">
+        
+        </div>
+    </div>
+</div>
+</body>
+</html>
