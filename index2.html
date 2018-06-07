@@ -31,7 +31,7 @@
     }
     .new_1 {
       width: 30%;
-      height:400px;
+      height:300px;
       border: 30px solid white;
       background-color: white;
       opacity: 0.8;
@@ -42,35 +42,17 @@
       text-decoration: underline;
       text-align: center;
     }
-    #new img {
-      width: 100px;
-      margin-left: 75px;
-    }
+
   </style>
 
- <!-- 弹出登录框 -->
- <div id="loginmodal" class="wrapper" style="display:none;">
-    <form class="form-signin">       
-      <h2 class="form-signin-heading">用户登录</h2>
-      <input type="text" class="form-control" name="username" placeholder="账号" required="" autofocus="" />
-      <input type="password" class="form-control" name="password" placeholder="密码" required=""/>      
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 记住我
-      </label>
-      <button class="btn btn-lg btn-primary btn-block">
-        <a href="index2.html" style="text-align: center;color: white">
-        登录</a></button>   
-    </form>
-</div>
 
 <!-- HTML内容 -->
 <div id="top-image">
     <img src="./images/左标.png" width="280px" style="position: absolute;top:-70px;left: -20px;"/>
   <div style="position: absolute;top: 30px;right: 30px;">
       <img src="./images/用户.png" width="25px" style="position:absolute;top: 0px;left:-35px;">
-     <a href="#loginmodal" id="modaltrigger" 
-     style="color: antiquewhite;font-family: 宋体;font-size: 20px;opacity: 0.9;">
-     注册 | 登录 | VIP</a><br>
+     <a style="color: antiquewhite;font-family: 宋体;font-size: 20px;opacity: 0.9;">
+     151****6374</a><br>
     </div>
 
 
@@ -98,7 +80,6 @@
           <div id="new">
 
               <div id="div11" class="new_1" style="position: absolute;top: 0px;left: 0px;">
-                <img src="./images/榜单 (2).png"/>
                 <h3 style="color: black;text-align: center">2017年度榜单</h3><br>
                 <a>1.大学生娶同学妈妈，背后隐藏的真..</a><br><br>
                 <a>2. “姚方案”因被认为不合国情全遭否决</a><br><br>
@@ -106,8 +87,7 @@
                 <a>4.温州一女生因迟到2分钟被拒进高考..</a><br><br>
               </div>
               <div id="div12" class="new_1" style="position: absolute;top: 0px;left: 0px;display: none">
-                  <img src="./images/榜单 (1).png"/>  
-                <h3 style="color: black;text-align: center">名人去世专题</h3><br>
+                  <h3 style="color: black;text-align: center">名人去世专题</h3><br>
                   <a>1.缅怀一代功夫巨星洪金宝</a><br><br>
                   <a>2.著名武侠作家金庸在香港医院去世</a><br><br>
                   <a>3.成龙心脏病发逝世</a><br><br>
@@ -115,7 +95,6 @@
                 </div>
 
               <div id="div21" class="new_1" style="position: absolute;top: 0px;left: 375px;">
-                  <img src="./images/榜单 (3).png"/>  
                 <h3 style="color: black;text-align: center">历史影响力榜单</h3><br>
                 <a>1.俄罗斯再次入侵、总统遇刺身</a><br><br>
                 <a>2.Ochoco大坝决堤</a><br><br>
@@ -123,8 +102,7 @@
                 <a>4.美国6岁男孩误乘氦气球被带到..</a><br><br>
               </div>
               <div id="div22" class="new_1" style="position: absolute;top: 0px;left: 375px;display: none">
-                  <img src="./images/榜单 (4).png"/>    
-                <h3 style="color: black;text-align: center">热门榜</h3><br>
+                  <h3 style="color: black;text-align: center">热门榜</h3><br>
                   <a>1.175名中国游客被弃日本机场</a><br><br>
                   <a>2.70岁以上老人乘机必须开健康证明</a><br><br>
                   <a href="show_2.html">3.上海姑娘逃离江西农村</a><br><br>
@@ -132,7 +110,6 @@
                 </div>
 
               <div id="div31" class="new_1" style="position: absolute;top: 0px;right: 0;">
-                  <img src="./images/榜单 (1).png"/>  
                 <h3 style="color: black;text-align: center">愚人节专题</h3><br>
                 <a>1.再见北京！暨虎嗅搬迁通知</a><br><br>
                 <a>2.独家！摩拜、ofo正在商谈合..</a><br><br>
@@ -140,8 +117,7 @@
                 <a>4.Google 地图变“ Ms. Pac-Man “游戏</a><br><br>
               </div>
               <div id="div32" class="new_1" style="position: absolute;top: 0px;right: 0;display: none">
-                  <img src="./images/榜单 (5).png"/>  
-                <h3 style="color: black;text-align: center">军事榜</h3><br>
+                  <h3 style="color: black;text-align: center">军事榜</h3><br>
                   <a>1.中国将建立联合作战司令部</a><br><br>
                   <a>2.越南反对中国南海断续线主张</a><br><br>
                   <a>3.中国空军飞机误降澳大利亚国际机场</a><br><br>
@@ -166,14 +142,6 @@ $(document).ready(function() {
   });
 });
 
-//弹出登录框
-$(function(){
-  $('#loginform').submit(function(e){
-    return false;
-  });
-  
-  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-});
 
 
 //轮转播放
