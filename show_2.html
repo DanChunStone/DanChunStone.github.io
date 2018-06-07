@@ -147,6 +147,18 @@
     #article #mainWord {
         font-size: 20px;
     }
+    #other a {
+        color:#333436;
+        font-size: 23px;
+        text-decoration: underline;
+    }
+    #other #test {
+        margin-top: 0px;
+        margin-left: 35px;
+        margin-right: 18px;
+        margin-bottom: 18px;
+    }
+    
 </style>
 
 <img src="./images/左标.png" width="280px" style="position: absolute;top:-70px;left: -20px;"/>
@@ -199,10 +211,26 @@
 
     <div id="other">
         <div id="text-1">
-            <h3 style="text-align: center;font-size: 35px;color:#CDB9EA">已核验辟谣</h3>
+            <h3 style="text-align: center;font-size: 35px;color:#CDB9EA">已核验辟谣</h3><br>
+            <div id="test">
+            <a href="http://jiangxi.jxnews.com.cn/system/2016/02/21/014695048.shtml">
+                ● 江西新闻网辟谣</a><br>
+            <a href="http://news.163.com/16/0222/06/BGDHUQC300014Q4P.html">● 网易新闻辟谣</a><br>
+            <a href="https://www.thepaper.cn/newsDetail_forward_1431143">● 澎湃新闻辟谣</a><br>
+            <a>● 搜狐谣言终结者</a><br>
+            <a>● 官方辟谣</a><br>
+            <a>● 相关科普</a><br>
+            <a>● 鉴别方法</a><br>
+            </div>
         </div>
         <div id="text-2">
-            <h3 style="text-align: center;font-size: 35px;color:#98BCEC">相关新闻</h3>
+            <h3 style="text-align: center;font-size: 35px;color:#98BCEC">相关新闻</h3><br>
+            <div id="test">
+            <a>● 话题：“凤凰男”、“孔雀女”、城乡差异、地域歧视</a><br>
+            <a href="https://v.qq.com/x/cover/qfhdngdd4wnckpj/e0184novrfe.html?">● 凤凰男遭遇城市女 一顿饭破了好姻缘</a><br>
+            <a href="http://news.youth.cn/sh/201604/t20160408_7833863.htm">● 北京警方抓获和颐酒店涉案男子系河南人24岁</a><br>
+            <a href="http://baijiahao.baidu.com/s?id=1600798830895093809&wfr=spider&for=pc">● 上海女子图鉴</a><br>
+        </div>
         </div>
     </div>
 </div>
@@ -214,9 +242,9 @@
 <script type="text/javascript">
 	//初始化数据
 	var arr = [
-		{id:1,img:"./images/用户 (1).jpg",replyName:"帅大叔",beReplyName:"匿名",content:"同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",time:"2018-6-7 11:42:53",address:"上海",osname:"",browse:"谷歌",replyBody:[]},
-		{id:2,img:"./images/用户 (2).jpg",replyName:"小飞飞",beReplyName:"匿名",content:"到菜市场买菜，看到一个孩子在看摊，我问：“一只鸡多少钱？” 那孩子回答：“23。” 我又问：“两只鸡多少钱？” 孩子愣了一下，一时间没算过来，急中生智大吼一声：“一次只能买一只！”",time:"2018-6-7 11:42:53",address:"杭州",osname:"",browse:"QQ浏览器",replyBody:[{id:3,img:"",replyName:"帅大叔",beReplyName:"小飞飞",content:"来啊，我们一起吃鸡",time:"2017-10-17 11:42:53",address:"",osname:"",browse:"谷歌"}]},
-		{id:3,img:"./images/用户 (3).jpg",replyName:"红色的小女巫",beReplyName:"匿名",content:"同学聚会，看到当年追我的屌丝开着宝马车带着他老婆来了，他老婆是我隔壁宿舍的同班同学，心里后悔极了。",time:"2018-6-7 11:42:53",address:"深圳",osname:"win10",browse:"谷歌",replyBody:[]}
+		{id:1,img:"./images/用户 (1).jpg",replyName:"帅大叔",beReplyName:"匿名",content:"社会中存在的问题需要用谣言来揭露吗，谣言能准确的反映这些问题吗？我们还要不要诚信社会了？造谣者得要付出一定程度的代价才行。",time:"2018-6-7 11:42:53",address:"上海",osname:"",browse:"谷歌",replyBody:[]},
+		{id:2,img:"./images/用户 (2).jpg",replyName:"小飞飞",beReplyName:"匿名",content:"事件或许是假的，但反映出的情绪，及背后的城乡差别、贫富差距却是真真切切的。切勿欲盖弥彰咯……",time:"2018-6-7 11:42:53",address:"杭州",osname:"",browse:"QQ浏览器",replyBody:[{id:3,img:"",replyName:"帅大叔",beReplyName:"小飞飞",content:"想反映社会现实，要么标明是小说，纯属虚构；要么用事实说话。这种谣言，严重损害了上海人和女性形象，这属于精神伤害，必须严惩。",time:"2017-10-17 11:42:53",address:"",osname:"",browse:"谷歌"}]},
+		{id:3,img:"./images/用户 (3).jpg",replyName:"红色的小女巫",beReplyName:"匿名",content:"炒了几天，才披露是假的，太慢了！",time:"2018-6-7 11:42:53",address:"深圳",osname:"win10",browse:"谷歌",replyBody:[]}
 	];
     var num = 0;
 
