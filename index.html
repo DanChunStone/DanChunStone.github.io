@@ -4,12 +4,162 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人博客</title>
+<title>单纯的博客</title>
 
 </head>
 <body>
+  <style type="text/css">
+    body{
+      background: url("http://p15.qhimg.com/bdr/__/d/_open360/fj1028/8.jpg") no-repeat fixed;
+    }
+    .content{
+      width: 40%;
+      margin: 0 auto;
+      text-align: left;
+      padding: 30px 50px 30px 50px;
 
-  <p>welcome to my blog.</p>
+      background-color: rgba(230, 230, 230, 0.8);
+      border-radius: 30px;
+    }
+    .person_information{
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #myAvatar{
+      height: 80px;
+      width: 80px;
+      border-radius: 40px;
+    }
+    #myName{
+      font-size: 30px;
+      color: black;
+      text-decoration:none;
+    }
 
+  </style>
+  
+  <div class="person_information">
+    <img id="myAvatar" src="./images/Avatar.png"/><br>
+    <a id="myName" href="https://blog.csdn.net/github_38688162">danchun</a>
+  </div><br>
+
+  <div class="content">
+
+    <h1 style="text-align: center">算法题系列(一)</h1>
+
+    <div class="article">
+    <h1>数串处理</h1>
+    <h2>一、题目描述</h2>
+    <p>
+      设有n个正整数，将他们连接成一排，组成一个最大的多位整数。<br>
+      如:n=3时，3个整数13,312,343,连成的最大整数为34331213。<br>
+      如:n=4时,4个整数7,13,4,246连接成的最大整数为7424613。<br>
+    </p>
+
+    <h2>输入描述:</h2>
+    <p>有多组测试样例，每组测试样例包含两行，第一行为一个整数N（N<=100），第二行包含N个数(每个数不超过1000，空格分开)。</p>
+    <h2>输出描述:</h2>
+    <p>每组数据输出一个表示最大的整数。</p>
+    <br>
+
+    <h2>二、解法思路</h2>
+    <p>
+    1、题目分析<br><br>
+
+    题目要求：<br>
+
+    n个正整数，将他们连接成一排，组成一个最大的多位整数。<br><br>
+
+    要组成一个最大的多位整数，n个输入的正整数已经确定，所组成的多位整数的位数也已经确定，为所有正整数的位数之和。<br><br>
+
+    那么只需要将最高位所在的数字最大的正整数放在最前面，最高位所在的数字第二大的数放在组合的第二位，以此类推。<br><br>
+
+    上面的想法很简单，但是也可能出现两个正整数的最高位大小一样的情况，比如32和35。<br><br>
+
+    也有可能出现两个数前几位相同，但是位数不一样的情况。这些我们后面会考虑到。<br><br>
+
+    2、算法设计<br><br>
+
+    要解决这个问题，我的思路是创建一个方法Boolean compare(int a,int b)，传入两个正整数a，b，返回整数a在组合时的优先权值是否高于整数b的bool值。<br><br>
+
+    在设计好判断两个数在组合时的权值高低的方法之后，main方法中就可以直接通过任意的排序方法对输入的数组进行排序。只需要将传统排序算法的大小比较改成自己定义的权值判断方法即可。<br><br>
+    </p>
+
+    <h1>三、完整代码</h1>
+    <pre>
+    import java.util.Scanner;
+    
+    /**
+    * 题目描述
+    * 设有n个正整数，将他们连接成一排，组成一个最大的多位整数。
+    * 如:n=3时，3个整数13,312,343,连成的最大整数为34331213。
+    * 如:n=4时,4个整数7,13,4,246连接成的最大整数为7424613。
+    */
+    
+    
+    public class Test1 {
+        public static void main(String[] args){
+            Scanner input = new Scanner(System.in);
+            do{
+                int n = input.nextInt();
+                int[] number = new int[n];
+                for (int k = 0;k < n;k++){
+                    number[k] = input.nextInt();
+                }
+    
+                //直接使用冒泡排序进行排序，将权值高的数放到前面
+                for (int i = 0;i < n;i++){
+                    for (int j = n-1;j > i;j--){
+                        if (compare(number[j],number[i])){
+                            //交换number[i]和number[j]的位置
+                            number[i] = number[i] + number[j];
+                            number[j] = number[i] - number[j];
+                            number[i] = number[i] - number[j];
+                        }
+                    }
+                }
+                for(int each:number){
+                    System.out.print(each);
+                }
+                System.out.println();
+            }while (input.hasNext());
+        }
+    
+        /**
+        * 比较两个整数在连成一排组和时的优先权
+        * 方法：从两个数的最高位开始比较，如果当前位不相等，则结束。
+        * 如果当前位相等且两个数不都是最后一位，则后移一位开始比较。已经达到最后一位的则仍然留在最后一位。
+        */
+        public static Boolean compare(int a,int b){
+            int i = 0,j = 0;
+    
+            while (i < String.valueOf(a).length() || j < String.valueOf(b).length()){
+                if(getNumberByIndex(a,i) > getNumberByIndex(b,j)){
+                    return true;
+                }else if(getNumberByIndex(a,i) < getNumberByIndex(b,j)){
+                    return false;
+                }else{
+                    i++;
+                    j++;
+                }
+            }
+            return true;
+        }
+    
+        // 获取一个整数指定位的数字，高位->低位为0->max。
+        // 如果所找的位数超过了数字的最大位，则返回最高位的数字。
+        public static int getNumberByIndex(int n,int index){
+            String number = String.valueOf(n);
+            if (index < number.length()){
+                return Integer.valueOf(number.charAt(index));
+            }else{
+                return Integer.valueOf(number.charAt(0));
+            }
+        }
+    }
+    </pre>
+    </div>
+  </div>
 </body>
 </html>
